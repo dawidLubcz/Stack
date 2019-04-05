@@ -68,12 +68,12 @@ bool_t CMyStack<T>::push(T a_oItem)
     //resize the array
     if(m_uiSize == m_uiArraySize)
     {
-        const int newSize = m_uiSize == 0 ? MIN_SIZE : m_uiSize * 2; // new size
+        const int newSize = m_uiSize == 0 ? MIN_SIZE : m_uiSize * 2;
 
-        T *oldArray = m_paItems; //pointer to old array
-        T *newArray = new T[newSize]; // pointer to new array
+        T *oldArray = m_paItems;
+        T *newArray = new T[newSize];
 
-        copyArray(oldArray, newArray, m_uiSize); // copy
+        copyArray(oldArray, newArray, m_uiSize);
 
         m_paItems = newArray;
         m_uiArraySize = newSize;
@@ -133,8 +133,8 @@ bool_t CMyStack<T>::clear()
 
     if(0 < m_uiSize)
     {
-        T *oldArray = m_paItems; // pointer to old array
-        T *newArray = new T[g_uiInitalSize];  // pointer to new array
+        T *oldArray = m_paItems;
+        T *newArray = new T[g_uiInitalSize];
 
         m_uiArraySize = 0;
         m_uiSize = 0;
@@ -232,10 +232,10 @@ void CMyStack<T>::tryReleaseMem()
     {
         if(m_uiArraySize / m_uiSize == 2)
         {
-            T *oldArray = m_paItems; //pointer to old array
-            T *newArray = new T[m_uiSize]; // pointer to new array
+            T *oldArray = m_paItems;
+            T *newArray = new T[m_uiSize];
 
-            copyArray(oldArray, newArray, m_uiSize); // copy
+            copyArray(oldArray, newArray, m_uiSize);
 
             m_paItems = newArray;
             m_uiArraySize = m_uiSize;
